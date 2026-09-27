@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430">
+  <rect width="900" height="430" fill="#fffdf8"/>
+  <g fill="none" stroke="#172126" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M205 185 Q300 65 405 175 Q500 70 625 185" stroke-width="8"/>
+    <path d="M235 185 Q290 125 350 178 Q405 120 470 180 Q535 120 610 185" stroke-width="7"/>
+    <path d="M190 190 Q420 235 680 190" stroke="#a98b5d" stroke-width="6"/>
+    <path d="M190 205 Q420 250 680 205" stroke-width="3"/>
+    <path d="M210 183 Q185 115 140 85" stroke-width="8"/>
+    <path d="M142 88 Q110 110 98 137 M142 88 Q143 48 157 30 M142 88 Q177 60 205 55" stroke-width="6"/>
+    <path d="M300 220 C360 205 490 205 555 225 L590 260 L270 260 Z" stroke-width="7"/>
+    <circle cx="335" cy="262" r="27" stroke-width="7"/>
+    <circle cx="525" cy="262" r="27" stroke-width="7"/>
+    <path d="M355 220 L390 190 L475 190 L520 220" stroke-width="7"/>
+  </g>
+  <text x="450" y="320" text-anchor="middle" font-family="Georgia,serif" font-size="74" letter-spacing="9" fill="#172126">PALAWAN</text>
+  <text x="450" y="374" text-anchor="middle" font-family="cursive" font-size="56" font-style="italic" fill="#a98b5d">Easy Drive</text>
+  <text x="450" y="410" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" letter-spacing="5" fill="#172126">CAR RENTAL &amp; TRANSPORT SERVICES</text>
+</svg>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Palawan Easy Drive | Car Rental & Transport Services</title>
+<meta name="description" content="Palawan Easy Drive — self-drive car rental and transport services in Palawan.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a href="#home" class="brand"><img src="logo.svg" alt="Palawan Easy Drive logo"></a>
+  <nav>
+    <a href="#vehicles">Vehicles</a><a href="#services">Services</a><a href="#destinations">Destinations</a><a href="#contact">Contact</a>
+  </nav>
+  <a class="btn dark" href="#contact">Book Now</a>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">EXPLORE • TRAVEL • DISCOVER</p>
+    <h1>Your Journey.<br><em>Our Drive.</em></h1>
+    <p class="lead">Reliable car rental and transport services across Palawan. Travel comfortably, safely, and at your own pace.</p>
+    <div class="actions"><a class="btn dark" href="#contact">Book a Vehicle</a><a class="btn light" href="#contact">WhatsApp Inquiry</a></div>
+    <p class="rate-note">Self-drive from <b>₱2,000/day</b> • With driver from <b>₱3,500/day</b><br><small>Rates vary by vehicle, destination and rental duration.</small></p>
+  </div>
+  <div class="hero-art"><div class="sun"></div><div class="mountain m1"></div><div class="mountain m2"></div><div class="road"></div><div class="car">VIOS</div></div>
+</section>
+
+<section id="vehicles" class="section">
+  <p class="eyebrow">OUR VEHICLES</p><h2>Choose Your Ride</h2>
+  <div class="cards">
+    <article class="card"><div class="vehicle vios">VIOS</div><h3>Toyota Vios</h3><p>Self-drive / With driver</p><strong>From ₱2,000 / day</strong><a href="#contact">Inquire</a></article>
+    <article class="card"><div class="vehicle van">HIACE</div><h3>Toyota Hiace (Decontent)</h3><p>With driver</p><strong>From ₱3,500 / day*</strong><a href="#contact">Inquire</a></article>
+    <article class="card"><div class="vehicle van">GRANDIA GL</div><h3>Toyota Hiace GL Grandia</h3><p>With driver • Premium</p><strong>Rate on request</strong><a href="#contact">Inquire</a></article>
+    <article class="card"><div class="vehicle van">COMMUTER</div><h3>Toyota Commuter</h3><p>With driver</p><strong>Rate on request</strong><a href="#contact">Inquire</a></article>
+  </div>
+  <p class="fine">*With-driver rates depend on destination, itinerary and rental duration.</p>
+</section>
+
+<section id="services" class="dark-section">
+  <div><p class="eyebrow">OUR SERVICES</p><h2>More Than Just Car Rental</h2><p>Flexible transportation for airport transfers, tours, hotel pick-ups and local or long-distance travel around Palawan.</p></div>
+  <div class="service-grid">
+    <span>🚗<b>Self-Drive</b><small>Car Rental</small></span>
+    <span>👨‍✈️<b>With Driver</b><small>Private Transport</small></span>
+    <span>✈️<b>Airport Transfer</b><small>Pick-up & Drop-off</small></span>
+    <span>🏨<b>Hotel Transfer</b><small>Door-to-door</small></span>
+    <span>🚐<b>Van Rental</b><small>Group Travel</small></span>
+    <span>🌴<b>Tour Transport</b><small>Palawan Trips</small></span>
+  </div>
+</section>
+
+<section id="destinations" class="section">
+  <p class="eyebrow">POPULAR DESTINATIONS</p><h2>Discover Palawan</h2>
+  <div class="destinations"><span>Puerto Princesa</span><span>El Nido</span><span>Coron</span><span>Port Barton</span><span>San Vicente</span><span>Sabang</span></div>
+</section>
+
+<section id="contact" class="contact section">
+  <div><p class="eyebrow">BOOKING INQUIRY</p><h2>Tell Us About Your Trip</h2><p>Send your preferred vehicle, dates and destination. We'll confirm availability and the exact rate.</p></div>
+  <form id="booking">
+    <input name="name" placeholder="Full name" required>
+    <input name="phone" placeholder="WhatsApp / Phone" required>
+    <input name="pickup" type="date" required>
+    <input name="return" type="date">
+    <input name="destination" placeholder="Destination / Pick-up location" required>
+    <select name="vehicle"><option value="">Select vehicle</option><option>Toyota Vios</option><option>Hiace Decontent</option><option>Hiace GL Grandia</option><option>Toyota Commuter</option></select>
+    <select name="type"><option>Self-drive</option><option>With driver</option></select>
+    <textarea name="message" placeholder="Additional details (optional)"></textarea>
+    <button class="btn dark" type="submit">Send Inquiry via WhatsApp</button>
+  </form>
+</section>
+</main>
+
+<footer><img src="logo.svg" alt="" class="footer-logo"><p>Palawan Easy Drive • Car Rental & Transport Services</p><p>© 2026 Palawan Easy Drive. All rights reserved.</p></footer>
+<script>
+document.getElementById('booking').addEventListener('submit', function(e){
+  e.preventDefault();
+  const f = new FormData(this);
+  const msg = `PALAWAN EASY DRIVE - BOOKING INQUIRY%0A%0AName: ${f.get('name')}%0AWhatsApp/Phone: ${f.get('phone')}%0APick-up: ${f.get('pickup')}%0AReturn: ${f.get('return')||'N/A'}%0ADestination: ${f.get('destination')}%0AVehicle: ${f.get('vehicle')}%0ARental type: ${f.get('type')}%0ADetails: ${f.get('message')||'N/A'}`;
+  const number = '639774086864'; // Replace with your WhatsApp number, digits only, e.g. 639XXXXXXXXX
+  window.open(`https://wa.me/${number}?text=${msg}`,'_blank');
+});
+</script>
+</body>
+</html>
