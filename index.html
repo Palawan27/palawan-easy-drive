@@ -66,15 +66,32 @@
     <input name="destination" placeholder="Destination / Pick-up location" required>
     <select name="vehicle"><option value="">Select vehicle</option><option>Toyota Vios</option><option>Hiace Decontent</option><option>Hiace GL Grandia</option><option>Toyota Commuter</option></select>
     <select name="type"><option>Self-drive</option><option>With driver</option></select>
-    <textarea name="message" placeholder="Additional details (optional)"></textarea>
-    <button class="btn dark" type="submit">Send Inquiry via WhatsApp</button>
-  </form>
-</section>
-</main>
+ <script>
+document.getElementById('booking').addEventListener('submit', function(e) {
+  e.preventDefault();
 
-<footer><img src="logo.svg" alt="" class="footer-logo"><p>Palawan Easy Drive • Car Rental & Transport Services</p><p>© 2026 Palawan Easy Drive. All rights reserved.</p></footer>
-<script>
-document.getElementById('booking').addEventListener('submit', function(e){
+  const f = new FormData(this);
+
+  const message =
+`PALAWAN EASY DRIVE - BOOKING INQUIRY
+
+Name: ${f.get('name')}
+WhatsApp/Phone: ${f.get('phone')}
+Pick-up: ${f.get('pickup')}
+Return: ${f.get('return') || 'N/A'}
+Destination: ${f.get('destination')}
+Vehicle: ${f.get('vehicle') || 'Not specified'}
+Rental type: ${f.get('type')}
+Details: ${f.get('message') || 'N/A'}`;
+
+  const number = '639774086864';
+
+  const whatsappURL =
+    `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+
+  window.open(whatsappURL, '_blank');
+});
+ </script>
   e.preventDefault();
   const f = new FormData(this);
   const msg = `PALAWAN EASY DRIVE - BOOKING INQUIRY%0A%0AName: ${f.get('name')}%0AWhatsApp/Phone: ${f.get('phone')}%0APick-up: ${f.get('pickup')}%0AReturn: ${f.get('return')||'N/A'}%0ADestination: ${f.get('destination')}%0AVehicle: ${f.get('vehicle')}%0ARental type: ${f.get('type')}%0ADetails: ${f.get('message')||'N/A'}`;
