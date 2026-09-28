@@ -1,952 +1,1060 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Palawan Easy Drive | Car Rental, Van Hire & Transport</title>
-
-  <meta name="description" content="Palawan Easy Drive offers car rental, van hire, private transport and airport transfers across Palawan. Travel comfortably and book directly through WhatsApp.">
-
-  <meta name="keywords" content="Palawan car rental, Palawan van hire, Puerto Princesa car rental, Palawan transport, airport transfer Palawan, El Nido transport">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: #17342f;
-      background: #f7fbf9;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: min(1120px, 92%);
-      margin: auto;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,.96);
-      border-bottom: 1px solid #e3ebe8;
-      backdrop-filter: blur(10px);
-    }
-
-    .nav {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .logo {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: #0e6655;
-    }
-
-    .logo span {
-      color: #17342f;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 25px;
-      align-items: center;
-      font-size: .95rem;
-      font-weight: 600;
-    }
-
-    .nav-links a:hover {
-      color: #0e8b70;
-    }
-
-    .nav-btn {
-      background: #0e6655;
-      color: white !important;
-      padding: 10px 18px;
-      border-radius: 30px;
-    }
-
-    .hero {
-      background:
-        linear-gradient(135deg, rgba(14,102,85,.94), rgba(24,65,58,.90));
-      color: white;
-      padding: 95px 0 80px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.3fr .7fr;
-      gap: 55px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      font-size: .85rem;
-      letter-spacing: 2px;
-      font-weight: 700;
-      margin-bottom: 18px;
-      opacity: .9;
-    }
-
-    h1 {
-      font-size: clamp(2.7rem, 6vw, 5rem);
-      line-height: 1.03;
-      margin-bottom: 24px;
-    }
-
-    h1 em {
-      font-style: normal;
-      color: #b9e6d8;
-    }
-
-    .hero-text {
-      font-size: 1.15rem;
-      max-width: 650px;
-      color: #e6f5f0;
-      margin-bottom: 28px;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 22px;
-      border-radius: 30px;
-      font-weight: 700;
-      transition: .2s;
-    }
-
-    .btn-primary {
-      background: white;
-      color: #0e6655;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,.7);
-      color: white;
-    }
-
-    .hero-card {
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.2);
-      padding: 28px;
-      border-radius: 22px;
-    }
-
-    .hero-card h3 {
-      margin-bottom: 15px;
-      font-size: 1.35rem;
-    }
-
-    .hero-card ul {
-      list-style: none;
-    }
-
-    .hero-card li {
-      padding: 9px 0;
-      border-bottom: 1px solid rgba(255,255,255,.15);
-    }
-
-    .hero-card li:last-child {
-      border-bottom: none;
-    }
-
-    .quick-info {
-      background: white;
-      border-bottom: 1px solid #e5eeeb;
-    }
-
-    .quick-grid {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-    }
-
-    .quick-item {
-      padding: 22px 15px;
-      text-align: center;
-      border-right: 1px solid #e5eeeb;
-    }
-
-    .quick-item:last-child {
-      border-right: none;
-    }
-
-    .quick-item strong {
-      display: block;
-      color: #0e6655;
-      margin-bottom: 4px;
-    }
-
-    section {
-      padding: 80px 0;
-    }
-
-    .section-head {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 45px;
-    }
-
-    .section-head .label {
-      color: #0e8b70;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      font-size: .8rem;
-      margin-bottom: 8px;
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.1;
-      margin-bottom: 15px;
-    }
-
-    .section-head p {
-      color: #60736e;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: white;
-      border: 1px solid #e1ebe7;
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 8px 25px rgba(22,55,48,.05);
-    }
-
-    .icon {
-      width: 52px;
-      height: 52px;
-      display: grid;
-      place-items: center;
-      border-radius: 15px;
-      background: #e5f4ef;
-      font-size: 1.5rem;
-      margin-bottom: 18px;
-    }
-
-    .card h3 {
-      margin-bottom: 8px;
-      font-size: 1.25rem;
-    }
-
-    .card p {
-      color: #687a75;
-      font-size: .95rem;
-    }
-
-    .price {
-      color: #0e6655;
-      font-weight: 800;
-      margin-top: 14px;
-    }
-
-    .vehicle-card {
-      padding: 0;
-      overflow: hidden;
-    }
-
-    .vehicle-image {
-      height: 190px;
-      background: linear-gradient(135deg,#dbeee8,#edf7f4);
-      display: grid;
-      place-items: center;
-      font-size: 4rem;
-    }
-
-    .vehicle-content {
-      padding: 25px;
-    }
-
-    .vehicle-content ul {
-      margin: 15px 0 0 18px;
-      color: #687a75;
-    }
-
-    .routes {
-      background: #edf7f4;
-    }
-
-    .route-card {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .route-card .route {
-      font-size: 1.15rem;
-      font-weight: 800;
-    }
-
-    .route-card .route span {
-      display: block;
-      color: #687a75;
-      font-size: .9rem;
-      font-weight: normal;
-    }
-
-    .route-price {
-      white-space: nowrap;
-      font-weight: 800;
-      color: #0e6655;
-    }
-
-    .benefits {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 18px;
-    }
-
-    .benefit {
-      background: white;
-      border: 1px solid #e1ebe7;
-      border-radius: 18px;
-      padding: 24px;
-    }
-
-    .benefit strong {
-      display: block;
-      margin-bottom: 7px;
-    }
-
-    .benefit p {
-      color: #687a75;
-      font-size: .9rem;
-    }
-
-    .booking {
-      background: #0e6655;
-      color: white;
-    }
-
-    .booking-grid {
-      display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 45px;
-      align-items: start;
-    }
-
-    .booking-copy p {
-      color: #d9eee8;
-      margin-bottom: 20px;
-    }
-
-    .booking-points {
-      list-style: none;
-    }
-
-    .booking-points li {
-      padding: 8px 0;
-    }
-
-    form {
-      background: white;
-      padding: 28px;
-      border-radius: 22px;
-      color: #17342f;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
-
-    .field {
-      margin-bottom: 15px;
-    }
-
-    .field.full {
-      grid-column: 1 / -1;
-    }
-
-    label {
-      display: block;
-      font-size: .85rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      border: 1px solid #d7e4df;
-      border-radius: 10px;
-      padding: 12px;
-      font: inherit;
-      background: #fbfdfc;
-    }
-
-    textarea {
-      min-height: 110px;
-      resize: vertical;
-    }
-
-    .form-submit {
-      width: 100%;
-      border: none;
-      cursor: pointer;
-      background: #0e6655;
-      color: white;
-      padding: 14px;
-      border-radius: 30px;
-      font-weight: 800;
-      font-size: 1rem;
-    }
-
-    .whatsapp-box {
-      margin-top: 18px;
-      text-align: center;
-      padding: 20px;
-      border-radius: 15px;
-      background: #e8f7f1;
-    }
-
-    .whatsapp-box a {
-      display: inline-block;
-      margin-top: 8px;
-      font-weight: 800;
-      color: #0e6655;
-    }
-
-    .faq {
-      max-width: 850px;
-      margin: auto;
-    }
-
-    details {
-      background: white;
-      border: 1px solid #e1ebe7;
-      border-radius: 14px;
-      margin-bottom: 12px;
-      padding: 18px 20px;
-    }
-
-    summary {
-      cursor: pointer;
-      font-weight: 800;
-    }
-
-    details p {
-      margin-top: 12px;
-      color: #687a75;
-    }
-
-    .contact-box {
-      text-align: center;
-      background: white;
-      border: 1px solid #e1ebe7;
-      border-radius: 25px;
-      padding: 45px 25px;
-    }
-
-    .contact-box p {
-      color: #687a75;
-      margin: 10px 0 20px;
-    }
-
-    footer {
-      background: #102f2a;
-      color: white;
-      padding: 45px 0 25px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr 1fr;
-      gap: 30px;
-      margin-bottom: 30px;
-    }
-
-    footer h3 {
-      margin-bottom: 12px;
-    }
-
-    footer p,
-    footer li {
-      color: #b9cbc6;
-      font-size: .9rem;
-    }
-
-    footer ul {
-      list-style: none;
-    }
-
-    footer li {
-      margin: 7px 0;
-    }
-
-    .copyright {
-      border-top: 1px solid rgba(255,255,255,.12);
-      padding-top: 20px;
-      color: #9db2ac;
-      font-size: .8rem;
-      text-align: center;
-    }
-
-    .floating-whatsapp {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 999;
-      background: #168b63;
-      color: white;
-      padding: 13px 19px;
-      border-radius: 30px;
-      font-weight: 800;
-      box-shadow: 0 8px 25px rgba(0,0,0,.2);
-    }
-
-    @media(max-width: 850px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero-grid,
-      .booking-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .cards {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .benefits {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .quick-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .quick-item:nth-child(2) {
-        border-right: none;
-      }
-    }
-
-    @media(max-width: 600px) {
-      section {
-        padding: 60px 0;
-      }
-
-      .hero {
-        padding: 70px 0 60px;
-      }
-
-      .cards,
-      .benefits,
-      .form-grid,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .quick-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .route-card {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .floating-whatsapp {
-        right: 12px;
-        bottom: 12px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Palawan Easy Drive | Car Rental, Van Hire & Transport</title>
+
+<meta name="description" content="Palawan Easy Drive offers car rental with driver, van hire, premium van and airport transfer services across Palawan.">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+font-family:Arial,Helvetica,sans-serif;
+color:#17342f;
+background:#f7fbf9;
+line-height:1.6
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(255,255,255,.97);
+border-bottom:1px solid #e3ebe8
+}
+.nav{
+min-height:72px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px
+}
+.logo{
+font-size:1.25rem;
+font-weight:800;
+color:#0e6655
+}
+.logo span{color:#17342f}
+.nav-links{
+display:flex;
+gap:22px;
+align-items:center;
+font-size:.95rem;
+font-weight:600
+}
+.nav-links a:hover{color:#0e8b70}
+.nav-btn{
+background:#0e6655;
+color:white!important;
+padding:10px 18px;
+border-radius:30px
+}
+
+.hero{
+background:linear-gradient(135deg,#0e6655,#18413a);
+color:white;
+padding:90px 0 75px
+}
+.hero-grid{
+display:grid;
+grid-template-columns:1.3fr .7fr;
+gap:50px;
+align-items:center
+}
+.eyebrow{
+font-size:.85rem;
+letter-spacing:2px;
+font-weight:700;
+margin-bottom:18px
+}
+h1{
+font-size:clamp(2.7rem,6vw,5rem);
+line-height:1.03;
+margin-bottom:24px
+}
+h1 em{
+font-style:normal;
+color:#b9e6d8
+}
+.hero-text{
+font-size:1.15rem;
+max-width:650px;
+color:#e6f5f0;
+margin-bottom:28px
+}
+.buttons{
+display:flex;
+gap:12px;
+flex-wrap:wrap
+}
+.btn{
+display:inline-block;
+padding:13px 22px;
+border-radius:30px;
+font-weight:700
+}
+.btn-primary{
+background:white;
+color:#0e6655
+}
+.btn-outline{
+border:1px solid rgba(255,255,255,.7);
+color:white
+}
+.hero-card{
+background:rgba(255,255,255,.12);
+border:1px solid rgba(255,255,255,.2);
+padding:28px;
+border-radius:22px
+}
+.hero-card h3{margin-bottom:15px}
+.hero-card ul{list-style:none}
+.hero-card li{
+padding:9px 0;
+border-bottom:1px solid rgba(255,255,255,.15)
+}
+
+.quick-info{
+background:white;
+border-bottom:1px solid #e5eeeb
+}
+.quick-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr)
+}
+.quick-item{
+padding:22px 15px;
+text-align:center;
+border-right:1px solid #e5eeeb
+}
+.quick-item:last-child{border-right:none}
+.quick-item strong{
+display:block;
+color:#0e6655;
+margin-bottom:4px
+}
+
+section{padding:80px 0}
+.section-head{
+text-align:center;
+max-width:720px;
+margin:0 auto 45px
+}
+.label{
+color:#0e8b70;
+font-weight:800;
+letter-spacing:1.5px;
+font-size:.8rem;
+margin-bottom:8px
+}
+h2{
+font-size:clamp(2rem,4vw,3rem);
+line-height:1.1;
+margin-bottom:15px
+}
+.section-head p{color:#60736e}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px
+}
+.card{
+background:white;
+border:1px solid #e1ebe7;
+border-radius:20px;
+padding:28px;
+box-shadow:0 8px 25px rgba(22,55,48,.05)
+}
+.icon{
+width:52px;
+height:52px;
+display:grid;
+place-items:center;
+border-radius:15px;
+background:#e5f4ef;
+font-size:1.5rem;
+margin-bottom:18px
+}
+.card h3{margin-bottom:8px}
+.card p{
+color:#687a75;
+font-size:.95rem
+}
+.price{
+color:#0e6655;
+font-weight:800;
+margin-top:14px
+}
+
+.vehicle-card{
+padding:0;
+overflow:hidden
+}
+.vehicle-image{
+height:180px;
+background:linear-gradient(135deg,#dbeee8,#edf7f4);
+display:grid;
+place-items:center;
+font-size:4rem
+}
+.vehicle-content{padding:25px}
+.vehicle-content ul{
+margin:15px 0 0 18px;
+color:#687a75
+}
+
+.routes{background:#edf7f4}
+.route-card{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px
+}
+.route{
+font-size:1.1rem;
+font-weight:800
+}
+.route span{
+display:block;
+color:#687a75;
+font-size:.9rem;
+font-weight:normal
+}
+.route-price{
+white-space:nowrap;
+font-weight:800;
+color:#0e6655
+}
+
+.benefits{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px
+}
+.benefit{
+background:white;
+border:1px solid #e1ebe7;
+border-radius:18px;
+padding:24px
+}
+.benefit strong{
+display:block;
+margin-bottom:7px
+}
+.benefit p{
+color:#687a75;
+font-size:.9rem
+}
+
+.booking{
+background:#0e6655;
+color:white
+}
+.booking-grid{
+display:grid;
+grid-template-columns:.8fr 1.2fr;
+gap:45px;
+align-items:start
+}
+.booking-copy p{
+color:#d9eee8;
+margin-bottom:20px
+}
+.booking-points{list-style:none}
+.booking-points li{padding:8px 0}
+
+form{
+background:white;
+padding:28px;
+border-radius:22px;
+color:#17342f
+}
+.form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px
+}
+.field{margin-bottom:15px}
+.field.full{grid-column:1/-1}
+label{
+display:block;
+font-size:.85rem;
+font-weight:700;
+margin-bottom:6px
+}
+input,select,textarea{
+width:100%;
+border:1px solid #d7e4df;
+border-radius:10px;
+padding:12px;
+font:inherit;
+background:#fbfdfc
+}
+textarea{
+min-height:110px;
+resize:vertical
+}
+.form-submit{
+width:100%;
+border:none;
+cursor:pointer;
+background:#0e6655;
+color:white;
+padding:14px;
+border-radius:30px;
+font-weight:800;
+font-size:1rem
+}
+.whatsapp-box{
+margin-top:18px;
+text-align:center;
+padding:20px;
+border-radius:15px;
+background:#e8f7f1
+}
+.whatsapp-box a{
+display:inline-block;
+margin-top:8px;
+font-weight:800;
+color:#0e6655
+}
+
+.faq{
+max-width:850px;
+margin:auto
+}
+details{
+background:white;
+border:1px solid #e1ebe7;
+border-radius:14px;
+margin-bottom:12px;
+padding:18px 20px
+}
+summary{
+cursor:pointer;
+font-weight:800
+}
+details p{
+margin-top:12px;
+color:#687a75
+}
+
+.contact-box{
+text-align:center;
+background:white;
+border:1px solid #e1ebe7;
+border-radius:25px;
+padding:45px 25px
+}
+.contact-box p{
+color:#687a75;
+margin:10px 0 20px
+}
+
+footer{
+background:#102f2a;
+color:white;
+padding:45px 0 25px
+}
+.footer-grid{
+display:grid;
+grid-template-columns:1.3fr 1fr 1fr;
+gap:30px;
+margin-bottom:30px
+}
+footer h3{margin-bottom:12px}
+footer p,footer li{
+color:#b9cbc6;
+font-size:.9rem
+}
+footer ul{list-style:none}
+footer li{margin:7px 0}
+.copyright{
+border-top:1px solid rgba(255,255,255,.12);
+padding-top:20px;
+color:#9db2ac;
+font-size:.8rem;
+text-align:center
+}
+
+.floating-whatsapp{
+position:fixed;
+right:18px;
+bottom:18px;
+z-index:999;
+background:#168b63;
+color:white;
+padding:13px 19px;
+border-radius:30px;
+font-weight:800;
+box-shadow:0 8px 25px rgba(0,0,0,.2)
+}
+
+@media(max-width:850px){
+.nav-links{display:none}
+.hero-grid,.booking-grid{grid-template-columns:1fr}
+.cards{grid-template-columns:1fr 1fr}
+.benefits{grid-template-columns:1fr 1fr}
+.quick-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+section{padding:60px 0}
+.hero{padding:70px 0 60px}
+.cards,.benefits,.form-grid,.footer-grid{
+grid-template-columns:1fr
+}
+.route-card{
+align-items:flex-start;
+flex-direction:column
+}
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="container nav">
-    <a href="#" class="logo">Palawan <span>Easy Drive</span></a>
+<div class="container nav">
 
-    <nav class="nav-links">
-      <a href="#vehicles">Vehicles</a>
-      <a href="#services">Services</a>
-      <a href="#routes">Routes</a>
-      <a href="#contact">Contact</a>
-      <a href="#booking" class="nav-btn">Book Now</a>
-    </nav>
-  </div>
+<a href="#" class="logo">
+Palawan <span>Easy Drive</span>
+</a>
+
+<nav class="nav-links">
+<a href="#vehicles">Vehicles</a>
+<a href="#services">Services</a>
+<a href="#routes">Routes</a>
+<a href="#contact">Contact</a>
+<a href="#booking" class="nav-btn">Book Now</a>
+</nav>
+
+</div>
 </header>
 
 <main>
 
 <section class="hero">
-  <div class="container hero-grid">
+<div class="container hero-grid">
 
-    <div>
-      <p class="eyebrow">CAR RENTAL • VAN HIRE • TRANSPORT</p>
+<div>
 
-      <h1>Your Journey.<br><em>Our Drive.</em></h1>
+<p class="eyebrow">
+CAR RENTAL • VAN HIRE • TRANSPORT
+</p>
 
-      <p class="hero-text">
-        Reliable car rental, van hire, and private transport services across Palawan.
-        Travel comfortably, safely, and at your own pace.
-      </p>
+<h1>
+Your Journey.<br>
+<em>Our Drive.</em>
+</h1>
 
-      <div class="buttons">
-        <a href="#booking" class="btn btn-primary">Request a Quote</a>
-        <a href="https://wa.me/639774086864?text=Hello%20Palawan%20Easy%20Drive%2C%20I%27d%20like%20to%20inquire%20about%20your%20car%20rental%20or%20transport%20services." class="btn btn-outline">
-          WhatsApp Us
-        </a>
-      </div>
-    </div>
+<p class="hero-text">
+Reliable car rental with driver, van hire, premium van and airport transfer services across Palawan.
+Travel comfortably, safely, and at your own pace.
+</p>
 
-    <div class="hero-card">
-      <h3>Easy Travel in Palawan</h3>
-      <ul>
-        <li>✓ Car rental options</li>
-        <li>✓ Private van hire</li>
-        <li>✓ Airport transfers</li>
-        <li>✓ Hotel & city transfers</li>
-        <li>✓ Custom transport arrangements</li>
-      </ul>
-    </div>
+<div class="buttons">
 
-  </div>
+<a href="#booking" class="btn btn-primary">
+Request a Quote
+</a>
+
+<a href="https://api.whatsapp.com/send?phone=639774086864&text=Hello%20Palawan%20Easy%20Drive%2C%20I%27d%20like%20to%20inquire%20about%20your%20services."
+class="btn btn-outline">
+WhatsApp Us
+</a>
+
+</div>
+</div>
+
+<div class="hero-card">
+
+<h3>Easy Travel in Palawan</h3>
+
+<ul>
+<li>✓ Car rental with driver</li>
+<li>✓ Private van hire</li>
+<li>✓ Premium van</li>
+<li>✓ Airport transfers</li>
+<li>✓ Custom transport arrangements</li>
+</ul>
+
+</div>
+
+</div>
 </section>
 
 <section class="quick-info">
-  <div class="container quick-grid">
+<div class="container quick-grid">
 
-    <div class="quick-item">
-      <strong>Car Rental</strong>
-      Self-drive & with driver
-    </div>
+<div class="quick-item">
+<strong>Car Rental</strong>
+From ₱2,000
+</div>
 
-    <div class="quick-item">
-      <strong>Van Hire</strong>
-      Comfortable group travel
-    </div>
+<div class="quick-item">
+<strong>Van Hire</strong>
+From ₱3,500
+</div>
 
-    <div class="quick-item">
-      <strong>Airport</strong>
-      Puerto Princesa transfers
-    </div>
+<div class="quick-item">
+<strong>Airport Transfer</strong>
+₱1,000
+</div>
 
-    <div class="quick-item">
-      <strong>Palawan</strong>
-      Multiple destinations
-    </div>
+<div class="quick-item">
+<strong>Premium Van</strong>
+From ₱4,000
+</div>
 
-  </div>
+</div>
 </section>
 
 <section id="services">
-  <div class="container">
+<div class="container">
 
-    <div class="section-head">
-      <div class="label">OUR SERVICES</div>
-      <h2>Travel Your Way</h2>
-      <p>
-        Choose the transport service that fits your trip, group size and itinerary.
-      </p>
-    </div>
+<div class="section-head">
+<div class="label">OUR SERVICES</div>
+<h2>Travel Your Way</h2>
+<p>
+Choose the transport service that fits your trip, group size and itinerary.
+</p>
+</div>
 
-    <div class="cards">
+<div class="cards">
 
-      <div class="card">
-        <div class="icon">🚗</div>
-        <h3>Car Rental</h3>
-        <p>
-          Flexible vehicle rental for exploring Puerto Princesa and other parts of Palawan.
-        </p>
-        <div class="price">From ₱2,000 / day</div>
-      </div>
+<div class="card">
+<div class="icon">🚗</div>
+<h3>Car Rental with Driver</h3>
+<p>
+Comfortable private car transportation for your Palawan trip.
+</p>
+<div class="price">
+From ₱2,000 • Depends on destination
+</div>
+</div>
 
-      <div class="card">
-        <div class="icon">🚐</div>
-        <h3>Private Van Hire</h3>
-        <p>
-          Comfortable private transportation for families, groups and customized itineraries.
-        </p>
-        <div class="price">From ₱3,500 / day</div>
-      </div>
+<div class="card">
+<div class="icon">🚐</div>
+<h3>Private Van Hire</h3>
+<p>
+Comfortable transportation for families, groups and private itineraries.
+</p>
+<div class="price">
+From ₱3,500 • Depends on destination
+</div>
+</div>
 
-      <div class="card">
-        <div class="icon">✈️</div>
-        <h3>Airport Transfer</h3>
-        <p>
-          Convenient pickup and drop-off between Puerto Princesa Airport and your accommodation.
-        </p>
-        <div class="price">Request a quote</div>
-      </div>
+<div class="card">
+<div class="icon">✈️</div>
+<h3>Airport Transfer</h3>
+<p>
+Convenient pickup and drop-off from Puerto Princesa Airport.
+</p>
+<div class="price">
+₱1,000 • Puerto Princesa City Proper
+</div>
+</div>
 
-      <div class="card">
-        <div class="icon">🏨</div>
-        <h3>Hotel Transfer</h3>
-        <p>
-          Private transfers between hotels, terminals and popular Palawan destinations.
-        </p>
-        <div class="price">Request a quote</div>
-      </div>
+<div class="card">
+<div class="icon">⭐</div>
+<h3>Premium Van</h3>
+<p>
+A more comfortable option for private group transportation.
+</p>
+<div class="price">
+From ₱4,000 • Depends on destination
+</div>
+</div>
 
-      <div class="card">
-        <div class="icon">🗺️</div>
-        <h3>Custom Transport</h3>
-        <p>
-          Tell us your route, dates and passenger count and we can arrange a suitable vehicle.
-        </p>
-        <div class="price">Custom quote</div>
-      </div>
+<div class="card">
+<div class="icon">🏨</div>
+<h3>Hotel Transfer</h3>
+<p>
+Private transfers between hotels, terminals and Palawan destinations.
+</p>
+<div class="price">
+Request a quote
+</div>
+</div>
 
-      <div class="card">
-        <div class="icon">🌴</div>
-        <h3>Travel Support</h3>
-        <p>
-          Transport assistance for your Palawan itinerary, from arrival to your final destination.
-        </p>
-        <div class="price">Ask us</div>
-      </div>
+<div class="card">
+<div class="icon">🗺️</div>
+<h3>Custom Transport</h3>
+<p>
+Send your route, dates and passenger count for a customized quotation.
+</p>
+<div class="price">
+Custom quote
+</div>
+</div>
 
-    </div>
-  </div>
+</div>
+</div>
 </section>
 
 <section id="vehicles">
-  <div class="container">
+<div class="container">
 
-    <div class="section-head">
-      <div class="label">OUR VEHICLES</div>
-      <h2>Choose Your Ride</h2>
-      <p>
-        Vehicle availability and rates depend on your travel date, destination and rental duration.
-      </p>
-    </div>
+<div class="section-head">
+<div class="label">OUR VEHICLES</div>
+<h2>Choose Your Ride</h2>
+<p>
+Vehicle availability and rates depend on your travel date and destination.
+</p>
+</div>
 
-    <div class="cards">
+<div class="cards">
 
-      <div class="card vehicle-card">
-        <div class="vehicle-image">🚗</div>
-        <div class="vehicle-content">
-          <h3>Toyota Vios</h3>
-          <p>Practical choice for couples and small groups.</p>
-          <ul>
-            <li>Self-drive option</li>
-            <li>With-driver option</li>
-            <li>Comfortable for city travel</li>
-          </ul>
-          <div class="price">From ₱2,000 / day</div>
-        </div>
-      </div>
+<div class="card vehicle-card">
+<div class="vehicle-image">🚗</div>
 
-      <div class="card vehicle-card">
-        <div class="vehicle-image">🚐</div>
-        <div class="vehicle-content">
-          <h3>Toyota Hiace</h3>
-          <p>Ideal for families and groups traveling together.</p>
-          <ul>
-            <li>With driver</li>
-            <li>Spacious passenger area</li>
-            <li>Suitable for transfers</li>
-          </ul>
-          <div class="price">From ₱3,500 / day</div>
-        </div>
-      </div>
+<div class="vehicle-content">
+<h3>Car Rental with Driver</h3>
+<p>
+Practical and comfortable transportation for couples and small groups.
+</p>
 
-      <div class="card vehicle-card">
-        <div class="vehicle-image">🚐</div>
-        <div class="vehicle-content">
-          <h3>Premium Van</h3>
-          <p>Comfortable option for private group transportation.</p>
-          <ul>
-            <li>With driver</li>
-            <li>Premium comfort</li>
-            <li>Great for longer routes</li>
-          </ul>
-          <div class="price">Rate on request</div>
-        </div>
-      </div>
+<ul>
+<li>With driver</li>
+<li>Comfortable private travel</li>
+<li>Suitable for transfers and city travel</li>
+</ul>
 
-    </div>
-  </div>
+<div class="price">
+From ₱2,000 • Depends on destination
+</div>
+</div>
+</div>
+
+<div class="card vehicle-card">
+<div class="vehicle-image">🚐</div>
+
+<div class="vehicle-content">
+<h3>Private Van</h3>
+<p>
+Ideal for families and groups traveling together.
+</p>
+
+<ul>
+<li>With driver</li>
+<li>Spacious passenger area</li>
+<li>Suitable for transfers and private trips</li>
+</ul>
+
+<div class="price">
+From ₱3,500 • Depends on destination
+</div>
+</div>
+</div>
+
+<div class="card vehicle-card">
+<div class="vehicle-image">⭐</div>
+
+<div class="vehicle-content">
+<h3>Premium Van</h3>
+<p>
+Comfortable option for private group transportation.
+</p>
+
+<ul>
+<li>With driver</li>
+<li>Premium comfort</li>
+<li>Great for longer routes</li>
+</ul>
+
+<div class="price">
+From ₱4,000 • Depends on destination
+</div>
+</div>
+</div>
+
+</div>
+</div>
 </section>
 
 <section id="routes" class="routes">
-  <div class="container">
+<div class="container">
 
-    <div class="section-head">
-      <div class="label">POPULAR ROUTES</div>
-      <h2>Transport Across Palawan</h2>
-      <p>
-        Send us your pickup, destination, travel date and passenger count for a clear quotation.
-      </p>
-    </div>
+<div class="section-head">
+<div class="label">POPULAR ROUTES</div>
+<h2>Transport Across Palawan</h2>
+<p>
+Send us your pickup, destination, travel date and passenger count for a quotation.
+</p>
+</div>
 
-    <div class="cards">
+<div class="cards">
 
-      <div class="card route-card">
-        <div class="route">
-          Puerto Princesa → El Nido
-          <span>Private transfer / van hire</span>
-        </div>
-        <div class="route-price">Quote</div>
-      </div>
+<div class="card route-card">
+<div class="route">
+Puerto Princesa → El Nido
+<span>Private transfer / van hire</span>
+</div>
+<div class="route-price">Quote</div>
+</div>
 
-      <div class="card route-card">
-        <div class="route">
-          Puerto Princesa → Port Barton
-          <span>Private transportation</span>
-        </div>
-        <div class="route-price">Quote</div>
-      </div>
+<div class="card route-card">
+<div class="route">
+Puerto Princesa → Port Barton
+<span>Private transportation</span>
+</div>
+<div class="route-price">Quote</div>
+</div>
 
-      <div class="card route-card">
-        <div class="route">
-          Puerto Princesa → San Vicente
-          <span>Private transportation</span>
-        </div>
-        <div class="route-price">Quote</div>
-      </div>
+<div class="card route-card">
+<div class="route">
+Puerto Princesa → San Vicente
+<span>Private transportation</span>
+</div>
+<div class="route-price">Quote</div>
+</div>
 
-      <div class="card route-card">
-        <div class="route">
-          El Nido → Puerto Princesa
-          <span>Private transfer / van hire</span>
-        </div>
-        <div class="route-price">Quote</div>
-      </div>
+<div class="card route-card">
+<div class="route">
+El Nido → Puerto Princesa
+<span>Private transfer / van hire</span>
+</div>
+<div class="route-price">Quote</div>
+</div>
 
-      <div class="card route-card">
-        <div class="route">
-          El Nido → Port Barton
-          <span>Private group transport</span>
-        </div>
-        <div class="route-price">Quote</div>
-      </div>
+<div class="card route-card">
+<div class="route">
+El Nido → Port Barton
+<span>Private group transport</span>
+</div>
+<div class="route-price">Quote</div>
+</div>
 
-      <div class="card route-card">
-        <div class="route">
-          Custom Palawan Route
-          <span>Tell us your complete itinerary</span>
-        </div>
-        <div class="route-price">Custom</div>
-      </div>
+<div class="card route-card">
+<div class="route">
+Custom Palawan Route
+<span>Tell us your complete itinerary</span>
+</div>
+<div class="route-price">Custom</div>
+</div>
 
-    </div>
-  </div>
+</div>
+</div>
 </section>
 
 <section>
-  <div class="container">
+<div class="container">
 
-    <div class="section-head">
-      <div class="label">WHY CHOOSE US</div>
-      <h2>Simple, Comfortable & Convenient</h2>
-    </div>
+<div class="section-head">
+<div class="label">WHY CHOOSE US</div>
+<h2>Simple, Comfortable & Convenient</h2>
+</div>
 
-    <div class="benefits">
+<div class="benefits">
 
-      <div class="benefit">
-        <strong>✓ Direct Booking</strong>
-        <p>Contact us directly for your transport inquiry and quotation.</p>
-      </div>
+<div class="benefit">
+<strong>✓ Direct Booking</strong>
+<p>
+Contact us directly for your transport inquiry and quotation.
+</p>
+</div>
 
-      <div class="benefit">
-        <strong>✓ Flexible Options</strong>
-        <p>Choose car rental, van hire or private transportation.</p>
-      </div>
+<div class="benefit">
+<strong>✓ Flexible Options</strong>
+<p>
+Choose car rental, van hire, premium van or airport transfer.
+</p>
+</div>
 
-      <div class="benefit">
-        <strong>✓ Clear Quotes</strong>
-        <p>Tell us your route and requirements so we can prepare your quote.</p>
-      </div>
+<div class="benefit">
+<strong>✓ Clear Quotes</strong>
+<p>
+Send your route and requirements so we can prepare your quotation.
+</p>
+</div>
 
-      <div class="benefit">
-        <strong>✓ Local Travel Support</strong>
-        <p>Transport arrangements designed around your Palawan itinerary.</p>
-      </div>
+<div class="benefit">
+<strong>✓ Palawan Transport</strong>
+<p>
+Transport arrangements for your Palawan itinerary.
+</p>
+</div>
 
-    </div>
-  </div>
+</div>
+</div>
 </section>
 
 <section id="booking" class="booking">
 
-  <div class="container booking-grid">
+<div class="container booking-grid">
 
-    <div class="booking-copy">
-      <div class="label">BOOK YOUR RIDE</div>
+<div class="booking-copy">
 
-      <h2>Tell Us About Your Trip</h2>
+<div class="label">BOOK YOUR RIDE</div>
 
-      <p>
-        Send your travel details and we'll get back to you with availability
-        and a quotation.
-      </p>
+<h2>Tell Us About Your Trip</h2>
 
-      <ul class="booking-points">
-        <li>✓ Travel date</li>
-        <li>✓ Pickup & destination</li>
-        <li>✓ Number of passengers</li>
-        <li>✓ Vehicle or service needed</li>
-        <li>✓ Special requests or luggage details</li>
-      </ul>
-    </div>
+<p>
+Send your travel details and we'll get back to you with availability and a quotation.
+</p>
 
-    <form onsubmit="sendBooking(event)">
+<ul class="booking-points">
+<li>✓ Travel date</li>
+<li>✓ Pickup & destination</li>
+<li>✓ Number of passengers</li>
+<li>✓ Vehicle or service needed</li>
+<li>✓ Special requests or luggage details</li>
+</ul>
 
-      <div class="form-grid">
+</div>
 
-        <div class="field">
-          <label>Name</label>
-          <input id="name" type="text" placeholder="Your name" required>
-        </div>
+<form onsubmit="sendBooking(event)">
 
-        <div class="field">
-          <label>Email</label>
-          <input id="email" type="email" placeholder="email@example.com">
-        </div>
+<div class="form-grid">
 
-        <div class="field">
-          <label>Travel Date</label>
-          <input id="date" type="date" required>
-        </div>
+<div class="field">
+<label>Name</label>
+<input id="name" type="text" placeholder="Your name" required>
+</div>
 
-        <div class="field">
-          <label>Passengers</label>
-          <select id="passengers">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7
+<div class="field">
+<label>Email</label>
+<input id="email" type="email" placeholder="email@example.com">
+</div>
+
+<div class="field">
+<label>Travel Date</label>
+<input id="date" type="date" required>
+</div>
+
+<div class="field">
+<label>Passengers</label>
+<select id="passengers">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+<option>7</option>
+<option>8+</option>
+</select>
+</div>
+
+<div class="field">
+<label>Service</label>
+<select id="service">
+<option>Car Rental with Driver</option>
+<option>Private Van Hire</option>
+<option>Premium Van</option>
+<option>Airport Transfer</option>
+<option>Hotel Transfer</option>
+<option>Private Transport</option>
+<option>Custom Route</option>
+</select>
+</div>
+
+<div class="field">
+<label>Pickup Location</label>
+<input id="pickup" type="text" placeholder="Pickup point" required>
+</div>
+
+<div class="field full">
+<label>Destination / Message</label>
+<textarea id="message" placeholder="Tell us your destination, time, itinerary or other requirements."></textarea>
+</div>
+
+</div>
+
+<button class="form-submit" type="submit">
+Request Quote on WhatsApp
+</button>
+
+<div class="whatsapp-box">
+Prefer direct messaging?
+<br>
+
+<a href="https://api.whatsapp.com/send?phone=639774086864">
+WhatsApp: +63 977 408 6864
+</a>
+
+</div>
+
+</form>
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<div class="section-head">
+<div class="label">FAQ</div>
+<h2>Frequently Asked Questions</h2>
+</div>
+
+<div class="faq">
+
+<details>
+<summary>Do you offer car rental with driver?</summary>
+<p>
+Yes. Car rental with driver is available. Rates start from ₱2,000 and depend on the destination.
+</p>
+</details>
+
+<details>
+<summary>Do you offer private van hire?</summary>
+<p>
+Yes. Private van hire starts from ₱3,500 and depends on the destination.
+</p>
+</details>
+
+<details>
+<summary>How much is airport transfer?</summary>
+<p>
+Airport transfer is ₱1,000 for Puerto Princesa City Proper.
+</p>
+</details>
+
+<details>
+<summary>Do you offer premium vans?</summary>
+<p>
+Yes. Premium van rates start from ₱4,000 and depend on the destination.
+</p>
+</details>
+
+<details>
+<summary>Can I request a custom route?</summary>
+<p>
+Yes. Send your travel date, pickup point, destinations and number of passengers for a quotation.
+</p>
+</details>
+
+<details>
+<summary>How do I book?</summary>
+<p>
+You can use the booking form on this website or message us directly on WhatsApp.
+</p>
+</details>
+
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+
+<div class="contact-box">
+
+<div class="label">CONTACT US</div>
+
+<h2>Ready to Travel Around Palawan?</h2>
+
+<p>
+Send your travel details and let's arrange the right vehicle for your trip.
+</p>
+
+<div class="buttons" style="justify-content:center;">
+
+<a class="btn btn-primary"
+href="https://api.whatsapp.com/send?phone=639774086864&text=Hello%20Palawan%20Easy%20Drive%2C%20I%27d%20like%20to%20request%20a%20quotation.">
+WhatsApp Us
+</a>
+
+<a class="btn"
+style="background:#edf7f4;color:#0e6655"
+href="mailto:easydrivepalawan@gmail.com">
+Email Us
+</a>
+
+</div>
+
+<p style="margin-top:20px">
+📱 +63 977 408 6864
+<br>
+✉️ easydrivepalawan@gmail.com
+</p>
+
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+
+<div class="container footer-grid">
+
+<div>
+<h3>Palawan Easy Drive</h3>
+<p>
+Car rental, van hire and private transport services across Palawan.
+Travel comfortably and explore at your own pace.
+</p>
+</div>
+
+<div>
+<h3>Services</h3>
+<ul>
+<li><a href="#services">Car Rental</a></li>
+<li><a href="#services">Van Hire</a></li>
+<li><a href="#services">Airport Transfer</a></li>
+<li><a href="#services">Premium Van</a></li>
+</ul>
+</div>
+
+<div>
+<h3>Contact</h3>
+<ul>
+<li>+63 977 408 6864</li>
+<li>easydrivepalawan@gmail.com</li>
+<li>Palawan, Philippines</li>
+</ul>
+</div>
+
+</div>
+
+<div class="container copyright">
+© 2026 Palawan Easy Drive. All rights reserved.
+</div>
+
+</footer>
+
+<a class="floating-whatsapp"
+href="https://api.whatsapp.com/send?phone=639774086864&text=Hello%20Palawan%20Easy%20Drive%2C%20I%27d%20like%20to%20make%20an%20inquiry.">
+WhatsApp
+</a>
+
+<script>
+function sendBooking(event){
+
+event.preventDefault();
+
+const name=document.getElementById("name").value;
+const email=document.getElementById("email").value;
+const date=document.getElementById("date").value;
+const passengers=document.getElementById("passengers").value;
+const service=document.getElementById("service").value;
+const pickup=document.getElementById("pickup").value;
+const message=document.getElementById("message").value;
+
+const text =
+"Hello Palawan Easy Drive!%0A%0A"+
+"I would like to request a quotation.%0A%0A"+
+"Name: "+encodeURIComponent(name)+"%0A"+
+"Email: "+encodeURIComponent(email)+"%0A"+
+"Travel Date: "+encodeURIComponent(date)+"%0A"+
+"Passengers: "+encodeURIComponent(passengers)+"%0A"+
+"Service: "+encodeURIComponent(service)+"%0A"+
+"Pickup: "+encodeURIComponent(pickup)+"%0A"+
+"Message: "+encodeURIComponent(message);
+
+window.open(
+"https://api.whatsapp.com/send?phone=639774086864&text="+text,
+"_blank"
+);
+}
+</script>
+
+</body>
+  </html>
