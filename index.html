@@ -1175,6 +1175,7 @@ const service=document.getElementById("service").value;
 const vehicle=document.getElementById("vehicle").value;
 const pickup=document.getElementById("pickup").value;
 const destination=document.getElementById("destination").value;
+const estimatedPrice=document.getElementById("estimatedPrice").textContent;
 const message=document.getElementById("message").value;
 
 const text =
@@ -1196,6 +1197,48 @@ window.open(
 "_blank"
 );
 }
+function updateEstimatedPrice() {
+  const service = document.getElementById("service").value;
+  const pickup = document.getElementById("pickup").value.trim().toLowerCase();
+  const destination = document.getElementById("destination").value.trim().toLowerCase();
+  const priceBox = document.getElementById("estimatedPrice");
+
+  let price = "";
+
+  if (service === "Private Van Hire" &&
+      pickup.includes("puerto princesa") &&
+      destination.includes("el nido")) {
+    price = "₱7,000 / private van";
+  } else if (service === "Private Van Hire" &&
+             pickup.includes("el nido") &&
+             destination.includes("puerto princesa")) {
+    price = "₱7,000 / private van";
+  } else if (service === "Private Van Hire" &&
+             pickup.includes("puerto princesa") &&
+             destination.includes("port barton")) {
+    price = "₱6,000 / private van";
+  } else if (service === "Private Van Hire" &&
+             pickup.includes("puerto princesa") &&
+             destination.includes("san vicente")) {
+    price = "₱7,000 / private van";
+  } else if (service === "Airport Transfer" &&
+             pickup.includes("puerto princesa airport") &&
+             destination.includes("el nido")) {
+    price = "₱7,000 / private van";
+  } else if (service === "Airport Transfer" &&
+             pickup.includes("puerto princesa airport") &&
+             destination.includes("hotel")) {
+    price = "₱1,500 / private vehicle";
+  } else {
+    price = "Request a quote — price depends on route and service.";
+  }
+
+  priceBox.textContent = price;
+}
+
+document.getElementById("service").addEventListener("change", updateEstimatedPrice);
+document.getElementById("pickup").addEventListener("input", updateEstimatedPrice);
+document.getElementById("destination").addEventListener("input", updateEstimatedPrice); 
 </script>
 
 </body>
