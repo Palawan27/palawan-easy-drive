@@ -1256,11 +1256,19 @@ function updateEstimatedPrice() {
   priceBox.textContent = price;
 }
 
-document.getElementById("service").addEventListener("change", updateEstimatedPrice);
-document.getElementById("pickup").addEventListener("input", updateEstimatedPrice);
-document.getElementById("destination").addEventListener("input", updateEstimatedPrice);
-  
-updateEstimatedPrice();
+window.addEventListener("DOMContentLoaded", function () {
+  const service = document.getElementById("service");
+  const pickup = document.getElementById("pickup");
+  const destination = document.getElementById("destination");
+
+  if (!service || !pickup || !destination) return;
+
+  service.addEventListener("change", updateEstimatedPrice);
+  pickup.addEventListener("input", updateEstimatedPrice);
+  destination.addEventListener("input", updateEstimatedPrice);
+
+  updateEstimatedPrice();
+});
   
 </script>
 
