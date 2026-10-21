@@ -1197,6 +1197,7 @@ window.open(
 "_blank"
 );
 }
+
 function updateEstimatedPrice() {
   const service = document.getElementById("service").value;
   const pickup = document.getElementById("pickup").value.trim().toLowerCase();
@@ -1234,6 +1235,10 @@ function updateEstimatedPrice() {
       destination.includes("el nido")) {
     price = "₱7,000 / private van";
   } else if (service === "Airport Transfer" &&
+      pickup.includes("puerto princesa airport") &&
+      destination.includes("hotel")) {
+    price = "₱1,500 / private vehicle";
+  } else if (service === "Hotel Transfer" &&
       pickup.includes("puerto princesa airport") &&
       destination.includes("hotel")) {
     price = "₱1,500 / private vehicle";
