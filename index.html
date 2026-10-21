@@ -1190,8 +1190,8 @@ const text =
 "Vehicle Type: "+encodeURIComponent(vehicle)+"%0A"+
 "Pickup: "+encodeURIComponent(pickup)+"%0A"+
 "Destination: "+encodeURIComponent(destination)+"%0A"+
+"Estimated Price: "+encodeURIComponent(estimatedPrice)+"%0A"+
 "Message: "+encodeURIComponent(message);
-
 window.open(
 "https://api.whatsapp.com/send?phone=639774086864&text="+text,
 "_blank"
@@ -1203,34 +1203,48 @@ function updateEstimatedPrice() {
   const destination = document.getElementById("destination").value.trim().toLowerCase();
   const priceBox = document.getElementById("estimatedPrice");
 
-  let price = "";
+  let price = "Request a quote — price depends on route and service.";
 
   if (service === "Private Van Hire" &&
       pickup.includes("puerto princesa") &&
       destination.includes("el nido")) {
     price = "₱7,000 / private van";
   } else if (service === "Private Van Hire" &&
-             pickup.includes("el nido") &&
-             destination.includes("puerto princesa")) {
+      pickup.includes("el nido") &&
+      destination.includes("puerto princesa")) {
     price = "₱7,000 / private van";
   } else if (service === "Private Van Hire" &&
-             pickup.includes("puerto princesa") &&
-             destination.includes("port barton")) {
+      pickup.includes("puerto princesa") &&
+      destination.includes("port barton")) {
     price = "₱6,000 / private van";
   } else if (service === "Private Van Hire" &&
-             pickup.includes("puerto princesa") &&
-             destination.includes("san vicente")) {
+      pickup.includes("puerto princesa") &&
+      destination.includes("san vicente")) {
+    price = "₱7,000 / private van";
+  } else if (service === "Private Van Hire" &&
+      pickup.includes("el nido") &&
+      destination.includes("port barton")) {
+    price = "₱6,000 / private van";
+  } else if (service === "Private Van Hire" &&
+      pickup.includes("san vicente") &&
+      destination.includes("el nido")) {
+    price = "₱6,000 / private van";
+  } else if (service === "Airport Transfer" &&
+      pickup.includes("puerto princesa airport") &&
+      destination.includes("el nido")) {
     price = "₱7,000 / private van";
   } else if (service === "Airport Transfer" &&
-             pickup.includes("puerto princesa airport") &&
-             destination.includes("el nido")) {
-    price = "₱7,000 / private van";
-  } else if (service === "Airport Transfer" &&
-             pickup.includes("puerto princesa airport") &&
-             destination.includes("hotel")) {
+      pickup.includes("puerto princesa airport") &&
+      destination.includes("hotel")) {
     price = "₱1,500 / private vehicle";
-  } else {
-    price = "Request a quote — price depends on route and service.";
+  } else if (service === "Hotel Transfer" &&
+      pickup.includes("el nido airport") &&
+      destination.includes("hotel")) {
+    price = "₱2,000";
+  } else if (service === "Car Rental with Driver") {
+    price = "From ₱3,500 — confirm destination and rate";
+  } else if (service === "Premium Van") {
+    price = "From ₱4,000 — confirm route and rate";
   }
 
   priceBox.textContent = price;
@@ -1238,7 +1252,8 @@ function updateEstimatedPrice() {
 
 document.getElementById("service").addEventListener("change", updateEstimatedPrice);
 document.getElementById("pickup").addEventListener("input", updateEstimatedPrice);
-document.getElementById("destination").addEventListener("input", updateEstimatedPrice); 
+document.getElementById("destination").addEventListener("input", updateEstimatedPrice);
+  
 </script>
 
 </body>
