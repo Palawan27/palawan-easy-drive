@@ -197,12 +197,24 @@ margin-top:14px
 padding:0;
 overflow:hidden
 }
+
 .vehicle-image{
-height:180px;
-background:linear-gradient(135deg,#dbeee8,#edf7f4);
-display:grid;
-place-items:center;
-font-size:4rem
+  height: 220px;
+  width: 100%;
+  background: #edf7f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.vehicle-image img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 .vehicle-content{padding:25px}
 .vehicle-content ul{
