@@ -420,8 +420,14 @@ box-shadow:0 8px 25px rgba(0,0,0,.2)
 @media(max-width:600px){
 section{padding:60px 0}
 .hero{padding:70px 0 60px}
-.cards,.benefits,.form-grid,.footer-grid{
-grid-template-columns:1fr
+.cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.benefits,
+.form-grid,
+.footer-grid {
+  grid-template-columns: 1fr;
 }
 .route-card{
 align-items:flex-start;
