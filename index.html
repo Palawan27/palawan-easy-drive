@@ -1247,69 +1247,64 @@ function updateEstimatedPrice() {
     return;
   }
 
-  const service = serviceElement.value.trim();
+  const service = serviceElement.value.trim().toLowerCase();
   const pickup = pickupElement.value.trim().toLowerCase();
   const destination = destinationElement.value.trim().toLowerCase();
 
+  const isRoute = (a, b) =>
+    (pickup.includes(a) && destination.includes(b)) ||
+    (pickup.includes(b) && destination.includes(a));
+
   let price = "Request a quote — price depends on route and service.";
 
-  if (service === "Private Van Hire") {
-    if (
-      (pickup.includes("puerto princesa") && destination.includes("el nido")) ||
-      (pickup.includes("el nido") && destination.includes("puerto princesa"))
-    ) {
+  if (service === "private van hire") {
+    if (isRoute("puerto princesa", "el nido")) {
       price = "₱7,000 / private van";
-    } else if (
-      (pickup.includes("puerto princesa") && destination.includes("port barton")) ||
-      (pickup.includes("port barton") && destination.includes("puerto princesa")) ||
-      (pickup.includes("el nido") && destination.includes("port barton")) ||
-      (pickup.includes("port barton") && destination.includes("el nido"))
-    ) {
+    } else if (isRoute("puerto princesa", "port barton")) {
       price = "₱6,000 / private van";
-    } else if (
-      (pickup.includes("puerto princesa") && destination.includes("san vicente")) ||
-      (pickup.includes("san vicente") && destination.includes("puerto princesa")) ||
-      (pickup.includes("san vicente") && destination.includes("el nido")) ||
-      (pickup.includes("el nido") && destination.includes("san vicente"))
-    ) {
+    } else if (isRoute("el nido", "port barton")) {
+      price = "₱6,000 / private van";
+    } else if (isRoute("puerto princesa", "san vicente")) {
       price = "₱7,000 / private van";
+    } else if (isRoute("san vicente", "el nido")) {
+      price = "₱6,000 / private van";
     }
-  } else if (service === "Airport Transfer") {
+  } else if (service === "airport transfer") {
     if (pickup.includes("puerto princesa airport") && destination.includes("el nido")) {
       price = "₱7,000 / private van";
     } else if (pickup.includes("puerto princesa airport") && destination.includes("hotel")) {
       price = "₱1,500 / private vehicle";
     }
-  } else if (service === "Hotel Transfer") {
+  } else if (service === "hotel transfer") {
     if (pickup.includes("puerto princesa airport") && destination.includes("hotel")) {
       price = "₱1,500 / private vehicle";
     } else if (pickup.includes("el nido airport") && destination.includes("hotel")) {
       price = "₱2,000 / private vehicle";
     }
-  } else if (service === "Car Rental with Driver") {
+  } else if (service === "car rental with driver") {
     price = "From ₱3,500 — confirm destination and rate";
-  } else if (service === "Premium Van") {
+  } else if (service === "premium van") {
     price = "From ₱4,000 — confirm route and rate";
-  } else if (service === "Underground River Tour") {
+  } else if (service === "underground river tour") {
     price = "₱2,500 / person";
-  } else if (service === "Honda Bay Tour") {
+  } else if (service === "honda bay tour") {
     price = "₱1,900 / person";
-  } else if (service === "Puerto Princesa City Tour") {
+  } else if (service === "puerto princesa city tour") {
     price = "₱800 / person";
-  } else if (service === "Firefly Watching") {
+  } else if (service === "firefly watching") {
     price = "₱1,500 / person";
   } else if (
-    service === "El Nido Tours" ||
-    service === "Coron Tours" ||
-    service === "Port Barton Tours"
+    service === "el nido tours" ||
+    service === "coron tours" ||
+    service === "port barton tours"
   ) {
     price = "From ₱1,500 / person";
-  } else if (service === "Balabac Tour") {
+  } else if (service === "balabac tour") {
     price = "From ₱13,500 / person";
   }
 
   priceBox.textContent = price;
-}
+    }
 window.addEventListener("DOMContentLoaded", function () {
  const service = document.getElementById("service");
   const pickup = document.getElementById("pickup");
