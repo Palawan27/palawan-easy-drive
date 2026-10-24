@@ -1315,16 +1315,18 @@ window.open(
 );
 }
 function updateEstimatedPrice() {
-  const service = document.getElementById("service").value.trim().toLowerCase();
-  const pickup = document.getElementById("pickup").value.trim().toLowerCase();
-  const destination = document.getElementById("destination").value.trim().toLowerCase();
+  const serviceEl = document.getElementById("service");
+  const pickupEl = document.getElementById("pickup");
+  const destinationEl = document.getElementById("destination");
   const priceBox = document.getElementById("estimatedPrice");
 
-  const normalize = (place) =>
-    place.replace(/\s+/g, " ").trim();
+  if (!serviceEl || !pickupEl || !destinationEl || !priceBox) return;
 
-  const from = normalize(pickup);
-  const to = normalize(destination);
+  const service = serviceEl.value.trim().toLowerCase();
+  const from = pickupEl.value.trim().toLowerCase().replace(/\s+/g, " ");
+  const to = destinationEl.value.trim().toLowerCase().replace(/\s+/g, " ");
+
+  const has = (text, place) => place.includes(text);
 
   const routePrices = [
     { a: "puerto princesa", b: "el nido", price: "₱7,000 / private van" },
@@ -1334,41 +1336,60 @@ function updateEstimatedPrice() {
     { a: "san vicente", b: "el nido", price: "₱6,000 / private van" }
   ];
 
-  const matchesRoute = (a, b) =>
-    (from.includes(a) && to.includes(b)) ||
-    (from.includes(b) && to.includes(a));
-
   let price = "Request a quote — price depends on route and service.";
 
   if (service === "private van hire") {
-    const route = routePrices.find((r) => matchesRoute(r.a, r.b));
+    const route = routePrices.find(r =>
+      (has(r.a, from) && has(r.b, to)) ||
+      (has(r.b, from) && has(r.a, to))
+    );
     if (route) price = route.price;
+
   } else if (service === "airport transfer" || service === "hotel transfer") {
-    if (from.includes("puerto princesa airport") && to.includes("el nido")) {
-      price = "₱7,000 / private van";
-    } else if (from.includes("puerto princesa airport") && to.includes("hotel")) {
+    if (
+      has("puerto princesa airport", from) &&
+      (has("hotel", to) || has("city proper", to))
+    ) {
       price = "₱1,500 / private vehicle";
-    } else if (from.includes("el nido airport") && to.includes("hotel")) {
+    } else if (
+      has("puerto princesa airport", from) && has("el nido", to)
+    ) {
+      price = "₱7,000 / private van";
+    } else if (
+      has("el nido airport", from) && has("hotel", to)
+    ) {
       price = "₱2,000 / private vehicle";
+    } else if (
+      has("puerto princesa", from) && has("hotel", to)
+    ) {
+      price = "Request a quote — confirm exact pickup point";
     }
+
   } else if (service === "car rental with driver") {
     price = "From ₱3,500 — confirm destination and rate";
+
   } else if (service === "premium van") {
     price = "From ₱4,000 — confirm route and rate";
+
   } else if (service === "underground river tour") {
     price = "₱2,500 / person";
+
   } else if (service === "honda bay tour") {
     price = "₱1,900 / person";
+
   } else if (service === "puerto princesa city tour") {
     price = "₱800 / person";
+
   } else if (service === "firefly watching") {
     price = "₱1,500 / person";
+
   } else if (
     service === "el nido tours" ||
     service === "coron tours" ||
     service === "port barton tours"
   ) {
     price = "From ₱1,500 / person";
+
   } else if (service === "balabac tour") {
     price = "From ₱13,500 / person";
   }
