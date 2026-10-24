@@ -1238,47 +1238,40 @@ window.open(
 );
 }
 function updateEstimatedPrice() {
-  const serviceElement = document.getElementById("service");
-  const pickupElement = document.getElementById("pickup");
-  const destinationElement = document.getElementById("destination");
+  const service = document.getElementById("service").value.trim().toLowerCase();
+  const pickup = document.getElementById("pickup").value.trim().toLowerCase();
+  const destination = document.getElementById("destination").value.trim().toLowerCase();
   const priceBox = document.getElementById("estimatedPrice");
 
-  if (!serviceElement || !pickupElement || !destinationElement || !priceBox) {
-    return;
-  }
+  const normalize = (place) =>
+    place.replace(/\s+/g, " ").trim();
 
-  const service = serviceElement.value.trim().toLowerCase();
-  const pickup = pickupElement.value.trim().toLowerCase();
-  const destination = destinationElement.value.trim().toLowerCase();
+  const from = normalize(pickup);
+  const to = normalize(destination);
 
-  const isRoute = (a, b) =>
-    (pickup.includes(a) && destination.includes(b)) ||
-    (pickup.includes(b) && destination.includes(a));
+  const routePrices = [
+    { a: "puerto princesa", b: "el nido", price: "₱7,000 / private van" },
+    { a: "puerto princesa", b: "port barton", price: "₱6,000 / private van" },
+    { a: "puerto princesa", b: "san vicente", price: "₱7,000 / private van" },
+    { a: "el nido", b: "port barton", price: "₱6,000 / private van" },
+    { a: "san vicente", b: "el nido", price: "₱6,000 / private van" }
+  ];
+
+  const matchesRoute = (a, b) =>
+    (from.includes(a) && to.includes(b)) ||
+    (from.includes(b) && to.includes(a));
 
   let price = "Request a quote — price depends on route and service.";
 
   if (service === "private van hire") {
-    if (isRoute("puerto princesa", "el nido")) {
+    const route = routePrices.find((r) => matchesRoute(r.a, r.b));
+    if (route) price = route.price;
+  } else if (service === "airport transfer" || service === "hotel transfer") {
+    if (from.includes("puerto princesa airport") && to.includes("el nido")) {
       price = "₱7,000 / private van";
-    } else if (isRoute("puerto princesa", "port barton")) {
-      price = "₱6,000 / private van";
-    } else if (isRoute("el nido", "port barton")) {
-      price = "₱6,000 / private van";
-    } else if (isRoute("puerto princesa", "san vicente")) {
-      price = "₱7,000 / private van";
-    } else if (isRoute("san vicente", "el nido")) {
-      price = "₱6,000 / private van";
-    }
-  } else if (service === "airport transfer") {
-    if (pickup.includes("puerto princesa airport") && destination.includes("el nido")) {
-      price = "₱7,000 / private van";
-    } else if (pickup.includes("puerto princesa airport") && destination.includes("hotel")) {
+    } else if (from.includes("puerto princesa airport") && to.includes("hotel")) {
       price = "₱1,500 / private vehicle";
-    }
-  } else if (service === "hotel transfer") {
-    if (pickup.includes("puerto princesa airport") && destination.includes("hotel")) {
-      price = "₱1,500 / private vehicle";
-    } else if (pickup.includes("el nido airport") && destination.includes("hotel")) {
+    } else if (from.includes("el nido airport") && to.includes("hotel")) {
       price = "₱2,000 / private vehicle";
     }
   } else if (service === "car rental with driver") {
@@ -1304,7 +1297,7 @@ function updateEstimatedPrice() {
   }
 
   priceBox.textContent = price;
-    }
+}
 window.addEventListener("DOMContentLoaded", function () {
  const service = document.getElementById("service");
   const pickup = document.getElementById("pickup");
