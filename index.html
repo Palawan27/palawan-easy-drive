@@ -1297,19 +1297,34 @@ function updateEstimatedPrice() {
   }
 
 window.addEventListener("DOMContentLoaded", function () {
-  const service = document.getElementById("service");
+ const service = document.getElementById("service");
   const pickup = document.getElementById("pickup");
   const destination = document.getElementById("destination");
+  const vehicleField = document.getElementById("vehicleField");
+  const vehicle = document.getElementById("vehicle");
 
   if (!service || !pickup || !destination) return;
 
+  function updateBookingFields() {
+    const selectedService = service.value.toLowerCase();
+    const isTour = selectedService.includes("tour");
+
+    if (vehicleField && vehicle) {
+      vehicleField.style.display = isTour ? "none" : "";
+      vehicle.required = !isTour;
+
+      if (isTour) vehicle.value = "";
+    }
+  }
+
   service.addEventListener("change", updateEstimatedPrice);
+  service.addEventListener("change", updateBookingFields);
   pickup.addEventListener("input", updateEstimatedPrice);
   destination.addEventListener("input", updateEstimatedPrice);
 
   updateEstimatedPrice();
-});
-  
+  updateBookingFields();
+}); 
 </script>
 
 </body>
