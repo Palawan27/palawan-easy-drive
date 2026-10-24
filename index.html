@@ -1449,6 +1449,10 @@ window.addEventListener("DOMContentLoaded", function () {
   service.addEventListener("change", updateBookingFields);
   pickup.addEventListener("input", updateEstimatedPrice);
   destination.addEventListener("input", updateEstimatedPrice);
+  const tripType = document.getElementById("tripType");
+  if (tripType) {
+    tripType.addEventListener("change", updateEstimatedPrice);
+  }
 
   updateEstimatedPrice();
   updateBookingFields();
