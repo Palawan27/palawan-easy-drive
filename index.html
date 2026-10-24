@@ -1321,7 +1321,9 @@ window.addEventListener("DOMContentLoaded", function () {
 
   function updateBookingFields() {
     const selectedService = service.value.toLowerCase();
-    const isTour = selectedService.includes("tour");
+    const isTour =
+  selectedService.includes("tour") ||
+  selectedService === "firefly watching";
 
     if (vehicleField && vehicle) {
       vehicleField.style.display = isTour ? "none" : "";
