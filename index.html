@@ -1053,6 +1053,11 @@ Send your travel details and we'll get back to you with availability and a quota
 <label>Travel Date</label>
 <input id="date" type="date" required>
 </div>
+  
+<div class="field" id="returnDateField" style="display:none;">
+  <label for="returnDate">Return Date</label>
+  <input id="returnDate" type="date">
+</div>
 
 <div class="field">
 <label>Pickup Time</label>
@@ -1294,6 +1299,8 @@ event.preventDefault();
 const name=document.getElementById("name").value;
 const email=document.getElementById("email").value;
 const date=document.getElementById("date").value;
+const tripType=document.getElementById("tripType").value;
+const returnDate=document.getElementById("returnDate").value;  
 const time=document.getElementById("time").value;
 const passengers=document.getElementById("passengers").value;
 const service=document.getElementById("service").value;
@@ -1404,7 +1411,7 @@ function updateEstimatedPrice() {
 
   priceBox.textContent = price;
 }
-window.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("DOMContentLoaded", function () {  
  const service = document.getElementById("service");
   const pickup = document.getElementById("pickup");
   const destination = document.getElementById("destination");
@@ -1434,6 +1441,27 @@ window.addEventListener("DOMContentLoaded", function () {
 
   updateEstimatedPrice();
   updateBookingFields();
+}); 
+ window.addEventListener("DOMContentLoaded", function () {
+  const tripType = document.getElementById("tripType");
+  const returnDateField = document.getElementById("returnDateField");
+  const returnDate = document.getElementById("returnDate");
+
+  if (!tripType || !returnDateField || !returnDate) return;
+
+  function updateReturnDateField() {
+    const isRoundTrip = tripType.value === "Round-trip";
+
+    returnDateField.style.display = isRoundTrip ? "" : "none";
+    returnDate.required = isRoundTrip;
+
+    if (!isRoundTrip) {
+      returnDate.value = "";
+    }
+  }
+
+  tripType.addEventListener("change", updateReturnDateField);
+  updateReturnDateField();
 }); 
 </script>
 
